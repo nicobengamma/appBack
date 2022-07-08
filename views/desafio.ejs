@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <title>desafio</title>
+</head>
+<body>
+    <div class="row row-cols-1 row-cols-md-12 g-1 justify-content-center">
+    <form action="/personas" method="post" class="row g-3 needs-validation" novalidate>
+        <div class="col-md-2">
+          <label for="validationCustom01" class="form-label">First name</label>
+          <input type="text" class="form-control" name="nombre" placeholder="Matt" required>
+          <div class="valid-feedback">
+            Looks good!
+          </div>
+        </div>
+        <div class="col-md-2">
+          <label for="validationCustom02" class="form-label">Last name</label>
+          <input type="text" class="form-control" name="apellido" placeholder="Otto" required>
+          <div class="valid-feedback">
+            Looks good!
+          </div>
+        </div>   
+        <div class="col-md-1">
+          <label for="validationCustom02" class="form-label">Edad</label>
+          <input type="number" class="form-control" name="edad" value="22" required>
+          <div class="valid-feedback">
+            Looks good!
+          </div>
+        </div>   
+        <div class="col-12">
+          <button class="btn btn-primary" type="submit">Submit form</button>
+        </div>
+      </form>
+    </div>
+
+    <h2>Personal Ingresado</h2>
+    <% if(personas.length == 0) { %>
+        <p>No hay Personal Ingresado</p>
+    <% } else { %>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Edad</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% personas.forEach(personas => { %>
+                    <tr>
+                        <td><%=personas.nombre%></td>
+                        <td><%=personas.apellido%></td>
+                        <td><%=personas.edad%></td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    <% }  %>
+      <!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+</body>
+</html>
